@@ -4,12 +4,13 @@ class Solution:
     def tictactoe(self, moves: List[List[int]]) -> str:
         a, b = [0] * 8, [0] * 8
 
-        for idx, (row, col) in enumerate(moves):
-            player = a if idx % 2 == 0 else b
+        for i, (row, col) in enumerate(moves):
+            player = a if i % 2 == 0 else b
 
-            # Rows and columns
-            player[row] += 1
-            player[col + 3] += 1
+            # row
+            player[row] +=1
+            #column
+            player[col + 3] +=1
 
             # Diagonals
             if row == col:
@@ -17,11 +18,11 @@ class Solution:
             if row + col == 2:
                 player[7] += 1
 
-            # Check win after each move
+            #check win
             if 3 in player:
                 return "A" if player is a else "B"
 
-        # After all moves
+        # after all moves
         if len(moves) == 9:
             return "Draw"
         return "Pending"
